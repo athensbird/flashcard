@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { getDecks } from '../utils/api';
 import Deck from './Deck';
 
@@ -10,7 +10,13 @@ class DeckList extends React.Component {
   render() {
     return (
       {decks && decks.map((deck) => (
-        <Deck deck={deck}/>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate(
+          'Deck',
+          { deckId: deck.deckId }
+        )}/>
+          <Text>{deck.title}</Text>
+          <Text>{deck.count} cards</Text>
+        </TouchableOpacity>
       ))}
     );
   }

@@ -1,5 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import DeckList from './components/DeckList';
+import CreateDeck from './components/CreateDeck';
+import { TabNavigator, StackNavigator } from 'react-navigation';
+import { white, purple } from './utils/colors';
 
 export default class App extends React.Component {
   render() {
@@ -13,8 +17,33 @@ export default class App extends React.Component {
   }
 }
 
+const Tabs = TabNavigator({
+  List: {
+    screen: DeckList
+  },
+  New Deck: {
+    screen: CreateDeck
+  }
+}, tabBarOptions: {
+    activeTintColor: Platform.OS === 'ios' ? purple : white,
+    style: {
+      height: 56,
+      backgroundColor: Platform.OS === 'ios' ? white : purple,
+      shadowColor: 'rgba(0, 0, 0, 0.24)',
+      shadowOffset: {
+        height: 3,
+        weight: 0
+      },
+      shadowRadius: 6,
+      shadowOpacity: 1
+    }
+  }
+});
+
 const MainNavigator = StackNavigator({
-  
+  Home: {
+    screen: Tabs
+  }
 })
 
 const styles = StyleSheet.create({
