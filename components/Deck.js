@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { getDeck, addCardToDeck } from '../utils/api';
 import TextButton from './TextButton';
 
@@ -19,9 +19,12 @@ class Deck extends React.Component {
     return (
       <View>
         <Text>{deck.title}</Text>
-        <Text>{deck.count} cards</Text>
-        <TextButton text={addText} onPress={() => this.addCard}/>
-        <TextButton text={startText} onPress={() => this.startQuiz}/>
+        <TouchableOpacity onPress={() => this.addCard}>
+          <Text>{addText}</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.startQuiz}>
+          <Text>{startText}</Text>
+        </TouchableOpacity>
       </View>
     );
   }
