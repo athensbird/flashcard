@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { getDeck, addCardToDeck } from '../utils/api';
 import TextButton from './TextButton';
 
-class DeckList extends React.Component {
+class Deck extends React.Component {
   addCard() {
     console.log("About to add a text!");
   }
@@ -27,4 +27,4 @@ class DeckList extends React.Component {
   }
 }
 
-export default DeckList;
+export default Deck;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { getDecks } from '../utils/api';
 import Deck from './Deck';
-import { purple } from '../utils/colors';
+import { purple, white } from '../utils/colors';
 
 class DeckList extends Component {
   state = {
@@ -19,13 +19,13 @@ class DeckList extends Component {
   }
   render() {
     const { decks } = this.state;
+    const { navigate } = this.props.navigation;
     return (
       <View>
         {decks && Object.keys(decks).map(key => (
-          <TouchableOpacity key={key} onPress={() => this.props.navigation.navigate(
-            'Deck',
-            { title: decks[key].title }
-          )}>
+          <TouchableOpacity key={key} onPress={() => {
+            navigate('Deck', { title: decks[key].title }
+          )}}>
             <Text style={styles.text}>{decks[key].title}</Text>
           </TouchableOpacity>
         ))}
@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     paddingTop: 20,
     paddingBottom: 20,
-    backgroundColor: purple
+    backgroundColor: white
   }
 });
