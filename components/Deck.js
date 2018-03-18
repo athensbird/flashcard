@@ -7,9 +7,6 @@ class Deck extends React.Component {
   state = {
     deck: {}
   }
-  addCard() {
-    console.log("About to add a text!");
-  }
   startQuiz() {
     const { navigate } = this.props.navigation;
     console.log("About to start a quiz!");
@@ -29,14 +26,17 @@ class Deck extends React.Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View>
-        <Text>{this.state.deck.title}</Text>
-        <TouchableOpacity onPress={() => this.addCard()}>
-          <Text>Add Card</Text>
+        <Text style={styles.text}>{this.state.deck.title}</Text>
+        <TouchableOpacity onPress={() => {
+          navigate('CreateQuestion', { title: this.state.deck.title });
+        }}>
+          <Text style={styles.text}>Add Card</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.startQuiz}>
-          <Text>Start Quiz</Text>
+          <Text style={styles.text}>Start Quiz</Text>
         </TouchableOpacity>
       </View>
     );
@@ -44,3 +44,11 @@ class Deck extends React.Component {
 }
 
 export default Deck;
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 25,
+    paddingTop: 20,
+    paddingBottom: 20
+  }
+})

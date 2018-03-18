@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Platform } from 'react-native';
 import Deck from './components/Deck';
 import DeckList from './components/DeckList';
 import CreateDeck from './components/CreateDeck';
+import CreateQuestion from './components/CreateQuestion';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import { white, purple } from './utils/colors';
 
@@ -46,6 +47,9 @@ const MainNavigator = StackNavigator({
   },
   Deck: {
     screen: Deck
+  },
+  CreateQuestion: {
+    screen: CreateQuestion
   }
 })
 
