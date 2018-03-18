@@ -1,5 +1,5 @@
 import React from 'react';
-import { white, purple } from '../utils/colors';
+import { white, purple, lightPurp } from '../utils/colors';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function TextButton({ text, onPress }) {
@@ -12,14 +12,15 @@ export default function TextButton({ text, onPress }) {
 
 const styles = StyleSheet.create({
   submitBtn: {
-    backgroundColor: purple,
-    padding: 10,
-    paddingLeft: 30,
-    paddingRight: 30,
+    backgroundColor: lightPurp,
+    color: white,
+    paddingTop: 10,
     height: 45,
     borderRadius: 2,
-    alignSelf: 'flex-end',
+    alignItems: 'stretch',
     justifyContent: 'center',
-    alignItems: 'center'
+    textAlign: 'center',
+    margin: 20,
+    fontSize: 20
   }
 });

@@ -9,7 +9,7 @@ class Deck extends React.Component {
   }
   startQuiz() {
     const { navigate } = this.props.navigation;
-    console.log("About to start a quiz!");
+    navigate('Quiz');
   }
 
   componentDidMount() {
@@ -35,7 +35,7 @@ class Deck extends React.Component {
         }}>
           <Text style={styles.text}>Add Card</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.startQuiz}>
+        <TouchableOpacity onPress={() => this.startQuiz()}>
           <Text style={styles.text}>Start Quiz</Text>
         </TouchableOpacity>
       </View>
