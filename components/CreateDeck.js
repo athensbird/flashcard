@@ -12,7 +12,9 @@ export default class CreateDeck extends Component {
     }
   }
   handleSubmit() {
+    const { navigate } = this.props.navigation;
     saveDeckTitle(this.state.deckTitle);
+    navigate('Home');
   }
   render() {
     return (

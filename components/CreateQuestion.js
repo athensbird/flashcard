@@ -11,9 +11,11 @@ export default class CreateQuestion extends React.Component {
   }
   handleQuestion() {
     const { title } = this.props.navigation.state.params;
+    const { navigate } = this.props.navigation;
     if (title !== null) {
       addCardToDeck(title, this.state);
     }
+    navigate('Deck', { title: title });
   }
   render() {
     return (

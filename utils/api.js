@@ -22,7 +22,7 @@ export function getDeck(id) {
 
 export function saveDeckTitle(deckTitle) {
   const card = {
-    deckTitle: {
+    [deckTitle]: {
       title: deckTitle,
       questions: []
     }
