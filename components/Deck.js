@@ -16,30 +16,27 @@ class Deck extends React.Component {
   }
 
   componentDidMount() {
-
-    /*
     getDecks()
-      .then(decks => decks.filter(
-        d => d.title === title
-      )).then(deck => {
-        this.setState({deck})
+      .then(decks => Object.values(decks).filter(
+        d => d.title === this.props.navigation.state.params.title
+      )).then(deckArray => {
+        this.setState({
+          deck: deckArray[0]
+        })
+      }).catch((err) => {
+        console.log(err);
       });
-    */
   }
 
   render() {
-    const { title } = this.props.navigation.state.params;
-    console.log(title);
-    const addText = 'Add Card';
-    const startText = 'Start Quiz';
     return (
       <View>
-        <Text>{title}</Text>
+        <Text>{this.state.deck.title}</Text>
         <TouchableOpacity onPress={() => this.addCard()}>
-          <Text>{addText}</Text>
+          <Text>Add Card</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.startQuiz}>
-          <Text>{startText}</Text>
+          <Text>Start Quiz</Text>
         </TouchableOpacity>
       </View>
     );

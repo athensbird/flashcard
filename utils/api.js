@@ -6,6 +6,7 @@ const DECK_STORAGE_KEY = 'flashcard_nanodegree_project_III';
 export function getDecks() {
   return AsyncStorage.getItem(DECK_STORAGE_KEY)
     .then(res => {
+      console.log(res);
       if (res === null) {
         AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(dummyDecks))
           .then(err => console.log(err));
@@ -22,9 +23,12 @@ export function getDeck(id) {
 
 export function saveDeckTitle(deckTitle) {
   const card = {
-    title: deckTitle,
-    questions: []
+    deckTitle: {
+      title: deckTitle,
+      questions: []
+    }
   };
+  console.log(card);
   AsyncStorage.mergeItem(DECK_STORAGE_KEY, JSON.stringify(card));
 }
 

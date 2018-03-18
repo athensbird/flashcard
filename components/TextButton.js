@@ -4,7 +4,7 @@ import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default function TextButton({ text, onPress }) {
   return (
-    <TouchableOpacity onPress={onPrsss}>
+    <TouchableOpacity onPress={onPress}>
       <Text style={styles.submitBtn}>{text}</Text>
     </TouchableOpacity>
   );
