@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { getDecks, addCardToDeck } from '../utils/api';
 import TextButton from './TextButton';
+import { gray } from '../utils/colors';
+import { isPlural } from '../utils/helpers';
 
 class Deck extends React.Component {
   state = {
@@ -27,17 +29,16 @@ class Deck extends React.Component {
 
   render() {
     const { navigate } = this.props.navigation;
+    const numOfQuestions = typeof this.state.deck.questions !== 'undefined'
+      ? this.state.deck.questions.length : 0;
     return (
       <View>
         <Text style={styles.text}>{this.state.deck.title}</Text>
-        <TouchableOpacity onPress={() => {
+        <Text style={styles.subText}>{numOfQuestions} card{isPlural(numOfQuestions)}</Text>
+        <TextButton onPress={() => {
           navigate('CreateQuestion', { title: this.state.deck.title });
-        }}>
-          <Text style={styles.text}>Add Card</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.startQuiz()}>
-          <Text style={styles.text}>Start Quiz</Text>
-        </TouchableOpacity>
+        }} text='Add Card' />
+        <TextButton onPress={() => this.startQuiz()} text='Start Quiz' />
       </View>
     );
   }
@@ -47,8 +48,15 @@ export default Deck;
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 25,
+    textAlign: 'center',
+    fontSize: 40,
     paddingTop: 20,
     paddingBottom: 20
+  },
+  subText: {
+    textAlign: 'center',
+    fontSize: 30,
+    color: gray,
+    paddingTop: 20
   }
 })

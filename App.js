@@ -30,14 +30,12 @@ const Tabs = TabNavigator({
   tabBarOptions: {
     activeTintColor: Platform.OS === 'ios' ? purple : white,
     style: {
-      height: 56,
       backgroundColor: Platform.OS === 'ios' ? white : purple,
       shadowColor: 'rgba(0, 0, 0, 0.24)',
       shadowOffset: {
         height: 3,
         weight: 0
       },
-      shadowRadius: 6,
       shadowOpacity: 1
     }
   }

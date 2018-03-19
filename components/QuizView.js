@@ -25,9 +25,9 @@ export default class extends React.Component {
   nextCard() {
     const { navigate } = this.props.navigation;
     const { currentIndex, cards } = this.state;
-    console.log(this.state.score);
+    const { key } = this.props.navigation.state;
     if (currentIndex === cards.length - 1) {
-      navigate('Result', { score: this.state.score });
+      navigate('Result', { score: this.state.score, key });
     } else {
       this.setState({
         currentIndex: this.state.currentIndex + 1,

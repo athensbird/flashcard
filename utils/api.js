@@ -34,9 +34,20 @@ export function addCardToDeck(title, card) {
   AsyncStorage.getItem(DECK_STORAGE_KEY)
     .then(res => {
       let decks = JSON.parse(res);
-      console.log(decks);
       if (decks === null) {decks = getDecks();}
       decks[title].questions.push(card);
       AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(decks));
     });
+}
+
+export function removeDeck(title) {
+  AsyncStorage.getItem(DECK_STORAGE_KEY)
+    .then(res => {
+      let decks = JSON.parse(res);
+      if (decks === null) {decks = getDecks();}
+      decks[title] = undefined;
+      delete decks[title];
+      console.log(decks);
+      AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(decks));
+    })
 }
