@@ -47,7 +47,23 @@ export function removeDeck(title) {
       if (decks === null) {decks = getDecks();}
       decks[title] = undefined;
       delete decks[title];
-      console.log(decks);
       AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(decks));
     })
 }
+
+/*
+export function removeEmptyDeck() {
+  AsyncStorage.getItem(DECK_STORAGE_KEY)
+    .then(res => {
+      let decks = JSON.parse(res);
+      if (decks === null) {decks = getDecks();}
+      const keys = Object.keys(decks).filter(d => decks[d][title] === '');
+      console.log("keys", keys);
+      for (let key of keys) {
+        delete decks[key];
+      }
+      console.log("decks", decks);
+      AsyncStorage.setItem(DECK_STORAGE_KEY, JSON.stringify(decks));
+    })
+}
+*/

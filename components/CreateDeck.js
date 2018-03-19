@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { saveDeckTitle } from '../utils/api';
-import { gray } from '../utils/api';
+import { black, gray } from '../utils/api';
 import TextButton from './TextButton';
 
 export default class CreateDeck extends Component {
@@ -39,9 +39,11 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 40,
-    paddingTop: 50,
-    width: 200,
-    alignItems: 'center',
-    borderColor: gray
+    width: 300,
+    marginTop: 100,
+    marginBottom: 30,
+    alignSelf: 'center',
+    textAlign: 'center',
+    fontSize: 25
   }
 });

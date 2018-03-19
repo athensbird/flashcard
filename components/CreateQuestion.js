@@ -28,11 +28,12 @@ export default class CreateQuestion extends React.Component {
         />
         <TextInput
           style={styles.input}
+          multiline={true}
           onChangeText={answer => this.setState({answer})}
           value={this.state.answer}
           placeholder={'Enter the answer'}
         />
-        <TextButton style={styles.button} text={'Submit'} onPress={this.handleQuestion.bind(this)}/>
+        <TextButton style={[styles.button], {marginTop: 100}} text={'Submit'} onPress={this.handleQuestion.bind(this)}/>
       </View>
     );
   }
@@ -40,9 +41,11 @@ export default class CreateQuestion extends React.Component {
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
-    width: 200,
-    alignItems: 'center',
-    borderColor: gray
+    height: 50,
+    width: 300,
+    alignSelf: 'center',
+    textAlign: 'center',
+    borderColor: gray,
+    marginTop: 30
   }
 });
