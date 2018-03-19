@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Platform } from 'react-native';
 import Deck from './components/Deck';
 import DeckList from './components/DeckList';
 import QuizView from './components/QuizView';
+import ResultView from './components/ResultView';
 import CreateDeck from './components/CreateDeck';
 import CreateQuestion from './components/CreateQuestion';
 import { TabNavigator, StackNavigator } from 'react-navigation';
@@ -54,6 +55,9 @@ const MainNavigator = StackNavigator({
   },
   Quiz: {
     screen: QuizView
+  },
+  Result: {
+    screen: ResultView
   }
 })
 

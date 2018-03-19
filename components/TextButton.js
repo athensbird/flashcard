@@ -2,10 +2,10 @@ import React from 'react';
 import { white, purple, lightPurp } from '../utils/colors';
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-export default function TextButton({ text, onPress }) {
+export default function TextButton({ text, onPress, ...props }) {
   return (
     <TouchableOpacity onPress={onPress}>
-      <Text style={styles.submitBtn}>{text}</Text>
+      <Text style={[styles.submitBtn, props.style]}>{text}</Text>
     </TouchableOpacity>
   );
 };

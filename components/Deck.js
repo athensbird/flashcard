@@ -9,7 +9,7 @@ class Deck extends React.Component {
   }
   startQuiz() {
     const { navigate } = this.props.navigation;
-    navigate('Quiz');
+    navigate('Quiz', { title: this.props.navigation.state.params.title });
   }
 
   componentDidMount() {
