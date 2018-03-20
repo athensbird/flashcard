@@ -31,7 +31,7 @@ export function saveDeckTitle(deckTitle) {
 }
 
 export function addCardToDeck(title, card) {
-  AsyncStorage.getItem(DECK_STORAGE_KEY)
+  return AsyncStorage.getItem(DECK_STORAGE_KEY)
     .then(res => {
       let decks = JSON.parse(res);
       if (decks === null) {decks = getDecks();}

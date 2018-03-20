@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Alert } from 'react-native';
+import { missingValueAlert } from './Alert';
 import { saveDeckTitle } from '../utils/api';
 import { black, gray } from '../utils/api';
 import TextButton from './TextButton';
@@ -11,10 +12,26 @@ export default class CreateDeck extends Component {
       deckTitle: ''
     }
   }
+  /*
+  showAlert = () => {
+    Alert.alert('You have to set the name of the deck!');
+  }
+  missingValueAlert = () => {
+    return (
+      <TouchableOpacity onPress={this.showAlert()} style={styles.button}>
+        <Text>Alert</Text>
+      </TouchableOpacity>
+    )
+  }
+  */
   handleSubmit() {
     const { navigate } = this.props.navigation;
-    saveDeckTitle(this.state.deckTitle);
-    navigate('Home');
+    if (this.state.deckTitle === '') {
+      missingValueAlert('Deck Title Missing!');
+    } else {
+      saveDeckTitle(this.state.deckTitle);
+      navigate('Home');
+    }
   }
   render() {
     return (

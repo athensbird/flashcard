@@ -19,6 +19,11 @@ class DeckList extends Component {
         console.log(e);
       })
   }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.decks !== prevState.decks) {
+      this.setState({ decks: this.state.decks })
+    }
+  }
   render() {
     const { decks } = this.state;
     const { navigate } = this.props.navigation;

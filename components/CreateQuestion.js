@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import TextButton from './TextButton';
+import { missingValueAlert } from './Alert';
 import { addCardToDeck } from '../utils/api';
 import { gray, white, purple } from '../utils/api';
 
@@ -12,10 +13,14 @@ export default class CreateQuestion extends React.Component {
   handleQuestion() {
     const { title } = this.props.navigation.state.params;
     const { navigate } = this.props.navigation;
-    if (title !== null) {
-      addCardToDeck(title, this.state);
+    if (title !== null && this.state.question !== '' && this.state.answer !== '') {
+      addCardToDeck(title, this.state)
+        .then(() => {
+          navigate('Deck', { title: title });
+        })
+    } else {
+      missingValueAlert('Please make sure to complete the card!');
     }
-    navigate('Deck', { title: title });
   }
   render() {
     return (
