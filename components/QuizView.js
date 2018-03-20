@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { getDecks } from '../utils/api';
 import TextButton from './TextButton';
+import { clearLocalNotification } from '../utils/helpers';
 import { red, green } from '../utils/colors';
 
 export default class extends React.Component {
@@ -27,6 +28,8 @@ export default class extends React.Component {
     const { currentIndex, cards } = this.state;
     const { key } = this.props.navigation.state;
     if (currentIndex === cards.length - 1) {
+      /* clear localNotification */
+      clearLocalNotification();
       navigate('Result', { score: this.state.score, key });
     } else {
       this.setState({

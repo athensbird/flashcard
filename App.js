@@ -7,9 +7,14 @@ import ResultView from './components/ResultView';
 import CreateDeck from './components/CreateDeck';
 import CreateQuestion from './components/CreateQuestion';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { setLocalNotification } from './utils/helpers';
 import { white, purple } from './utils/colors';
 
 export default class App extends React.Component {
+  componentDidMount() {
+    /* create localNotification */
+    setLocalNotification();
+  }
   render() {
     return (
       <View style={styles.container}>
