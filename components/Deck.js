@@ -12,7 +12,9 @@ class Deck extends React.Component {
   }
   startQuiz() {
     const { navigate } = this.props.navigation;
-    navigate('Quiz', { title: this.props.navigation.state.params.title });
+    this.state.deck.questions.length > 0
+      ? navigate('Quiz', { title: this.props.navigation.state.params.title })
+      : missingValueAlert('The deck is currently empty!')
   }
   componentDidMount() {
     getDecks()

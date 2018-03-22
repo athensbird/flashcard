@@ -4,7 +4,6 @@ import { getDecks } from '../utils/api';
 import Deck from './Deck';
 import { isPlural } from '../utils/helpers';
 import { purple, white, gray } from '../utils/colors';
-import { removeDeck } from '../utils/api';
 
 class DeckList extends Component {
   state = {
